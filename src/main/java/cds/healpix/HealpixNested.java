@@ -147,6 +147,16 @@ public final class HealpixNested implements HashComputer, VerticesAndPathCompute
   }
 
   /**
+   * Returns the total number of distinct hash values (i.e. the number of HEALPix cells)
+   * at this object HEALPix depth.
+   * @return the total number of distinct hash values (i.e. the number of HEALPix cells)
+   * at this object HEALPix depth.
+   */
+  public long getNHash() {
+    return this.nHash;
+  }
+
+  /**
    * WARNING: the return object in not thread-safe!
    * @param auxAxis object describing the auxiliary axis
    * @return a new {@link HashComputerWithAux}, to be used in a distinct thread.

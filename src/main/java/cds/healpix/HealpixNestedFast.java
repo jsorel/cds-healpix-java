@@ -146,6 +146,16 @@ public final class HealpixNestedFast implements HashComputer, VerticesAndPathCom
     this.fc = fillingCurveType.get(depth);
   }
 
+  /**
+   * Returns the total number of distinct hash values (i.e. the number of HEALPix cells)
+   * at this object HEALPix depth.
+   * @return the total number of distinct hash values (i.e. the number of HEALPix cells)
+   * at this object HEALPix depth.
+   */
+  public long getNHash() {
+    return this.nHash;
+  }
+
   @Override
   public int depth() {
     return this.depth;
