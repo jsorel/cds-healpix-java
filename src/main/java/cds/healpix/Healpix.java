@@ -97,38 +97,38 @@ public final class Healpix implements Projection {
    * vertices 
    */
   public static double[] SMALLER_EDGE2OPEDGE_DIST = new double[] {
-      0.8410686705685088,    // depth = 0
-      0.37723631722170053,   // depth = 1
-      0.18256386461918295,   // depth = 2
-      0.09000432499034523,   // depth = 3
-      0.04470553761855741,   // depth = 4
-      0.02228115704023076,   // depth = 5
-      0.011122977211214961,  // depth = 6
-      0.005557125022105058,  // depth = 7
-      0.0027774761500209185, // depth = 8
-      0.0013884670480328143, // depth = 9
-      6.941658374603201E-4,  // depth = 10
-      3.4706600585087755E-4, // depth = 11
-      1.7352877579970442E-4, // depth = 12
-      8.676333125510362E-5,  // depth = 13
-      4.338140148342286E-5,  // depth = 14
-      2.1690634707822447E-5, // depth = 15
-      1.084530084565172E-5,  // depth = 16
-      5.422646295795749E-6,  // depth = 17
-      2.711322116099695E-6,  // depth = 18
-      1.3556608000873442E-6, // depth = 19
-      6.778303355805395E-7,  // depth = 20
-      3.389151516386149E-7,  // depth = 21
-      1.69457571754776E-7,   // depth = 22
-      8.472878485272006E-8,  // depth = 23
-      4.236439215502565E-8,  // depth = 24
-      2.1182195982014308E-8, // depth = 25
-      1.0591097960375205E-8, // depth = 26
-      5.295548939447981E-9,  // depth = 27
-      2.647774429917369E-9,  // depth = 28
-      1.3238871881399636E-9};// depth = 29
-
-  
+      8.410686705679302e-1,  // depth = 0
+      3.7723631722170065e-1, // depth = 1
+      1.8203364957037313e-1, // depth = 2
+      8.91145416330163e-2,   // depth = 3
+      4.3989734509169175e-2, // depth = 4
+      2.1817362566054977e-2, // depth = 5
+      1.0854009694242892e-2, // depth = 6
+      5.409888140793663e-3,  // depth = 7
+      2.6995833266547898e-3, // depth = 8
+      1.3481074874673246e-3, // depth = 9
+      6.735240905806414e-4,  // depth = 10
+      3.365953703015157e-4,  // depth = 11
+      1.682452196838741e-4,  // depth = 12
+      8.410609042173736e-5,  // depth = 13
+      4.204784317861652e-5,  // depth = 14
+      2.1022283297961136e-5, // depth = 15
+      1.0510625670060442e-5, // depth = 16
+      5.255150320257332e-6,  // depth = 17
+      2.6275239729465538e-6, // depth = 18
+      1.3137458638808036e-6, // depth = 19
+      6.568678535571394e-7,  // depth = 20
+      3.284323270983175e-7,  // depth = 21
+      1.642156595517884e-7,  // depth = 22
+      8.21076709163242e-8,   // depth = 23
+      4.105378528139296e-8,  // depth = 24
+      2.0526876713226626e-8, // depth = 25
+      1.0263433216329513e-8, // depth = 26
+      5.131714858175969e-9,  // depth = 27
+      2.5658567623093986e-9, // depth = 28
+      1.2829280665188905e-9  // depth = 29
+  };
+    
   /**
    * Latitude, in the equatorial region, for which the distance from the cell center to its four
    * vertices is equal on the sky (i.e. the shape of the cell on the sky is similar to a square):
@@ -879,7 +879,7 @@ public final class Healpix implements Projection {
     System.out.println("double EQUAT_PARABOLA_COEFF = " + v + ";");
   }
   
-  private static final void genCST_B() {
+  private static final void genCST_B() { // SMALLER_EDGE2OPEDGE_DIST
     System.out.println("double[] DIST_CW_EQUATOR = new double[]{");
     for (int d = 0; d <= Healpix.DEPTH_MAX; d++) {
       double val = PI_OVER_FOUR / Healpix.nside(d);
@@ -887,7 +887,7 @@ public final class Healpix implements Projection {
       if (d != Healpix.DEPTH_MAX) {
         System.out.println(", // depth = " + d);
       }
-    }SMALLER_EDGE2OPEDGE_DIST
+    }
     System.out.println("};");
   }
   
@@ -958,7 +958,7 @@ public final class Healpix implements Projection {
     System.out.println("};");
   }
   
-  public static void main(final String[] args) {
+  public static void main(String[] args) {
     // genSMALLER_EDGE2OPEDGE_DIST();
     genCST_A();
     genCST_B();
@@ -966,7 +966,8 @@ public final class Healpix implements Projection {
     genCST_D();
     genCST_E();
   }*/
-  
+
+  /*
   public static void main(final String[] args) {
     System.out.println(POLAR_LINEAR_COEFF[8] + " " +  DIST_TRANSIT_LAT_TO_PREV_RING[8]);
     // DIST_CW_EQUATOR[depth] * (1 - EQUAT_PARABOLA_COEFF * (latRad * latRad));
@@ -975,6 +976,6 @@ public final class Healpix implements Projection {
     
     // DIST_CW_EQUATOR[depth] * COS_LAT_OF_SQUARE_CELL + (latRad - LAT_OF_SQUARE_CELL) * EQUAT_LINEAR_COEFF[depth];
     System.out.println(COS_LAT_OF_SQUARE_CELL + " " + EQUAT_LINEAR_COEFF[8]);
-  }
+  }*/
   
 }
